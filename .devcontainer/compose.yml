@@ -1,0 +1,15 @@
+services:
+  devcontainer:
+    build: .
+
+  jaeger:
+    image: jaegertracing/jaeger:latest
+    command: ["--config", "/config/jaeger.yml"]
+    volumes:
+      - ./jaeger/config.yml:/config/jaeger.yml:ro
+
+  victoriametrics:
+    image: victoriametrics/victoria-metrics:latest
+    command: ["--promscrape.config=/config/prometheus.yml"]
+    volumes:
+      - ./victoriametrics/prometheus.yml:/config/prometheus.yml:ro

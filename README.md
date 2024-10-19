@@ -1,1 +1,1 @@
-# coredns-plugin-template
+# CoreDNS Plugin Template
